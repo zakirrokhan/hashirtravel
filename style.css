@@ -1265,6 +1265,169 @@ ul {
 }
 
 /* ==========================================================================
+   Booking & Consultation Section
+   ========================================================================== */
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.booking-info {
+    background: linear-gradient(135deg, var(--deep-navy) 0%, #00152b 100%);
+    color: var(--pure-white);
+    padding: 50px 40px;
+}
+
+.booking-info h3 {
+    color: var(--pure-white);
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+}
+
+.booking-perks {
+    margin-bottom: 40px;
+}
+
+.booking-perks li {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-card i {
+    font-size: 2rem;
+}
+
+.contact-card h4 {
+    color: var(--electric-teal);
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.booking-form {
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.booking-form .input-group {
+    margin-bottom: 20px;
+}
+
+.booking-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background: #fafafa;
+    transition: var(--transition-smooth);
+    resize: vertical;
+}
+
+.booking-form textarea:focus {
+    outline: none;
+    border-color: var(--electric-teal);
+    background: var(--pure-white);
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+}
+
+.form-disclaimer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 16px;
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--deep-navy);
+    text-align: left;
+    transition: var(--transition-smooth);
+}
+
+.faq-question i {
+    color: var(--electric-teal);
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease;
+    padding: 0 30px;
+}
+
+.faq-answer p {
+    color: var(--text-muted);
+    padding-bottom: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1278,9 +1441,14 @@ ul {
 
     .about-grid,
     .legal-grid,
-    .testimonials-grid {
+    .testimonials-grid,
+    .booking-container {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .booking-container {
+        gap: 0;
     }
 
     .visa-grid,
@@ -1384,9 +1552,24 @@ ul {
     }
 
     .search-panel,
-    #tours.search-panel {
+    #tours.search-panel,
+    .form-row {
         grid-template-columns: 1fr;
         gap: 12px;
+    }
+
+    .booking-info,
+    .booking-form {
+        padding: 30px 20px;
+    }
+
+    .faq-question {
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .faq-answer {
+        padding: 0 20px;
     }
 
     .search-panel .full-width {

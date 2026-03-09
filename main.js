@@ -191,4 +191,67 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 5000); // Change every 5 seconds
         }
     }
+
+    // FAQ Accordion Logic
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isOpen = question.classList.contains('active');
+
+            // Close all other FAQs
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.style.maxHeight = null;
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                question.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
+
+    // Booking Form Submission Logic
+    const bookingForm = document.getElementById('main-booking-form');
+    let isSubmitting = false;
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+
+            isSubmitting = true;
+            const submitBtn = document.getElementById('btn-submit-booking');
+            const originalText = submitBtn.innerHTML;
+
+            // Loading state
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Request...';
+            submitBtn.style.opacity = '0.9';
+            submitBtn.style.cursor = 'not-allowed';
+
+            // Simulate Network Request
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Request Sent Successfully!';
+                submitBtn.style.backgroundColor = '#25D366'; // WhatsApp/Success Green
+                submitBtn.style.color = 'white';
+                submitBtn.style.boxShadow = '0px 10px 20px rgba(37, 211, 102, 0.4)';
+
+                // Reset Form
+                bookingForm.reset();
+
+                // Reset Button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.color = '';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    submitBtn.style.boxShadow = '';
+                    isSubmitting = false;
+                }, 3000);
+            }, 2000);
+        });
+    }
 });
