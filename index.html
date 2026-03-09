@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashir Travel | Premium Global Tourism Platform</title>
+
+    <!-- Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Navbar -->
+    <nav class="glass-nav">
+        <div class="container nav-content">
+            <div class="logo">Hashir Travel</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#itinerary">Itinerary</a></li>
+                <li><a href="#legal">Legal</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Book Now</a>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/923001234567?text=Hello%20Hashir%20Travel!%20I%20am%20interested%20in%20booking%20a%20tour."
+        class="fab-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Floating Weather Widget -->
+    <div class="floating-weather glass-panel">
+        <div class="weather-icon">
+            <i class="fa-solid fa-sun text-teal"></i>
+        </div>
+        <div class="weather-info">
+            <span class="weather-temp">28°C</span>
+            <span class="weather-loc">Maldives</span>
+        </div>
+    </div>
+
+    <!-- Live Travel Feed Ticker -->
+    <div class="travel-ticker glass-ticker">
+        <div class="ticker-content" id="ticker-feed">
+            <span><i class="fa-solid fa-plane-arrival"></i> Last Booked: 5-Star Maldives Trip</span>
+            <span><i class="fa-solid fa-kaaba"></i> Last Booked: Premium Executive Umrah Package</span>
+            <span><i class="fa-solid fa-passport"></i> Last Approved: UK Multiple Entry Visa</span>
+            <span><i class="fa-solid fa-mountain-sun"></i> Last Booked: Swiss Alps Adventure Tour</span>
+            <!-- Duplicated for seamless loop -->
+            <span><i class="fa-solid fa-plane-arrival"></i> Last Booked: 5-Star Maldives Trip</span>
+            <span><i class="fa-solid fa-kaaba"></i> Last Booked: Premium Executive Umrah Package</span>
+            <span><i class="fa-solid fa-passport"></i> Last Approved: UK Multiple Entry Visa</span>
+            <span><i class="fa-solid fa-mountain-sun"></i> Last Booked: Swiss Alps Adventure Tour</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source
+                src="https://player.vimeo.com/external/498416801.sd.mp4?s=d753bf889dfcdbeae68ad93f185b9a89182f7e71&profile_id=164&oauth2_token_id=57447761"
+                type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1 class="antigravity-text">Elevate Your Journey<br>with Hashir Travel.</h1>
+                <p>Experience the world with unparalleled luxury, transparency, and seamless execution.</p>
+            </div>
+
+            <!-- Floating Search Console -->
+            <div class="search-console glass-panel antigravity-shadow">
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-target="flights"><i class="fa-solid fa-plane"></i>
+                        Flights</button>
+                    <button class="tab-btn" data-target="hotels"><i class="fa-solid fa-hotel"></i> Hotels</button>
+                    <button class="tab-btn" data-target="tours"><i class="fa-solid fa-map-location-dot"></i>
+                        Tours</button>
+                </div>
+
+                <div class="search-body">
+                    <div id="flights" class="search-panel active">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="text" placeholder="London (LHR)">
+                        </div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="text" placeholder="Dubai (DXB)">
+                        </div>
+                        <div class="input-group">
+                            <label>Dates</label>
+                            <input type="text" placeholder="Oct 10 - Oct 20" onfocus="(this.type='date')"
+                                onblur="(this.type='text')">
+                        </div>
+                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search
+                            Flights</button>
+                    </div>
+
+                    <div id="hotels" class="search-panel">
+                        <div class="input-group full-width">
+                            <label>Destination / Property</label>
+                            <input type="text" placeholder="e.g. Burj Al Arab Jumeirah">
+                        </div>
+                        <div class="input-group">
+                            <label>Check In</label>
+                            <input type="text" placeholder="Select Date" onfocus="(this.type='date')"
+                                onblur="(this.type='text')">
+                        </div>
+                        <div class="input-group">
+                            <label>Guests</label>
+                            <select>
+                                <option>1 Adult, 1 Room</option>
+                                <option selected>2 Adults, 1 Room</option>
+                                <option>2 Adults, 2 Children</option>
+                                <option>Group Booking</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Find Hotel</button>
+                    </div>
+
+                    <div id="tours" class="search-panel">
+                        <div class="input-group full-width">
+                            <label>Tour Category</label>
+                            <select>
+                                <option value="luxury">Luxury Escapes</option>
+                                <option value="umrah">Religious Tourism (Hajj/Umrah)</option>
+                                <option value="adventure">Adventure & Nature</option>
+                                <option value="honeymoon">Honeymoon Specials</option>
+                            </select>
+                        </div>
+                        <div class="input-group full-width">
+                            <label>Destination Focus</label>
+                            <input type="text" placeholder="e.g. Makkah, Maldives, Swiss Alps">
+                        </div>
+                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Find Tours</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section container section-padding">
+        <div class="section-header text-center">
+            <h2>Redefining the Art of Travel</h2>
+            <p class="sub-headline">Where Your Global Journey Begins with Confidence.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text glass-card antigravity-shadow">
+                <p>At Hashir Travel, we believe that traveling is more than just visiting a new place—it is about
+                    creating stories that last a lifetime. Founded on the principles of transparency, luxury, and
+                    seamless execution, we have grown into a premier travel consultancy dedicated to providing
+                    world-class experiences.</p>
+                <p>Whether you are seeking a peaceful spiritual pilgrimage, a high-octane adventure, or a sophisticated
+                    corporate retreat, our team of experts handles every detail. From the moment you dream of a
+                    destination to the second you return home, Hashir Travel is your silent partner in exploration.</p>
+            </div>
+
+            <div class="core-values">
+                <div class="value-card antigravity-shadow">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Precision</h3>
+                    <p>Every itinerary is crafted with attention to the smallest detail.</p>
+                </div>
+                <div class="value-card antigravity-shadow">
+                    <div class="icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Integrity</h3>
+                    <p>No hidden costs, no surprises—just honest, professional service.</p>
+                </div>
+                <div class="value-card antigravity-shadow">
+                    <div class="icon-wrapper"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Innovation</h3>
+                    <p>Utilizing "Antigravity" technology and modern booking systems for a frictionless user experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Architecture Section -->
+    <section id="services" class="services-section bg-light section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Complete Services</h2>
+                <p class="sub-headline">Expert solutions across every touchpoint of your journey.</p>
+            </div>
+
+            <!-- I. Visa Consultancy -->
+            <div class="service-module">
+                <div class="module-header glass-card antigravity-shadow p-30 mb-40 text-center">
+                    <h3>I. Visa Consultancy & Processing</h3>
+                    <p>Navigating international borders can be complex. Our dedicated visa department provides seamless
+                        solutions.</p>
+                </div>
+                <div class="visa-grid">
+                    <div class="service-card antigravity-shadow glass-card">
+                        <i class="fa-solid fa-file-signature text-teal"></i>
+                        <h4>Document Attestation</h4>
+                        <p>Professional handling of all legal paperwork.</p>
+                    </div>
+                    <div class="service-card antigravity-shadow glass-card">
+                        <i class="fa-solid fa-user-tie text-teal"></i>
+                        <h4>Expert Guidance</h4>
+                        <p>Specialized consultancy for USA, UK, Schengen, and Gulf regions.</p>
+                    </div>
+                    <div class="service-card antigravity-shadow glass-card">
+                        <i class="fa-solid fa-satellite-dish text-teal"></i>
+                        <h4>Real-time Updates</h4>
+                        <p>Stay informed on your application status via our digital tracker.</p>
+                    </div>
+                </div>
+                <div class="visa-regions">
+                    <div class="region-badge antigravity-shadow glass-card"><i class="fa-solid fa-flag-usa"></i> USA
+                    </div>
+                    <div class="region-badge antigravity-shadow glass-card"><i class="fa-solid fa-chess-rook"></i> UK
+                    </div>
+                    <div class="region-badge antigravity-shadow glass-card"><i class="fa-brands fa-etsy"></i> Schengen
+                    </div>
+                    <div class="region-badge antigravity-shadow glass-card"><i class="fa-solid fa-mosque"></i> Gulf
+                    </div>
+                    <button class="btn btn-primary">Check Requirements</button>
+                </div>
+            </div>
+
+            <!-- II. Curated Tour Packages -->
+            <div class="service-module">
+                <div class="module-header glass-card antigravity-shadow p-30 mb-40 text-center">
+                    <h3>II. Curated Tour Packages</h3>
+                    <p>We don't just sell tickets; we design memories.</p>
+                </div>
+                <div class="tour-inventory">
+                    <!-- Standard Tour 1 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img bg-luxury">
+                            <div class="floating-price">From $2,499</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Maldives Overwater Retreat</h4>
+                            <p>5 Nights in a 5-star overwater pool villa with daily spa treatments, seaplane transfers,
+                                and private dinners.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Standard Tour 2 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img bg-religious">
+                            <div class="floating-price">From $1,899</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Executive VIP Umrah</h4>
+                            <p>14 Nights package covering Makkah and Madinah with 5-Star clock tower hotels right in
+                                front of the Haram gates.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Standard Tour 3 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img bg-adventure">
+                            <div class="floating-price">From $1,299</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Swiss Alps Winter Escape</h4>
+                            <p>7 Days of premium skiing, helicopter rides, and lodging in luxury wooden chalets
+                                overlooking the Matterhorn.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Added Tour 4 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img"
+                            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent), url('https://images.unsplash.com/photo-1512453979436-5a53f444c283?auto=format&fit=crop&q=80&w=800');">
+                            <div class="floating-price">From $899</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Dubai Shopping Festival</h4>
+                            <p>5 Nights stays in Downtown Dubai, Safari Desert Tours, Dhow Cruise Dinner, and exclusive
+                                mall discount vouchers.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Added Tour 5 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img"
+                            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent), url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=800');">
+                            <div class="floating-price">From $1,599</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Turkey Heritage Tour</h4>
+                            <p>10 Days discovering Istanbul, Cappadocia Hot Air Balloons, Pamukkale thermal pools, and
+                                ancient Ephesus ruins.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Added Tour 6 -->
+                    <div class="tour-card antigravity-shadow">
+                        <div class="tour-img"
+                            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent), url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800');">
+                            <div class="floating-price">From $3,200</div>
+                        </div>
+                        <div class="tour-info glass-card">
+                            <h4>Europe Grand Explorer</h4>
+                            <p>15 Days spanning France, Italy, and Switzerland. Includes bullet train transfers and
+                                Eiffel Tower private balcony dining.</p>
+                            <a href="#contact" class="view-link">Book Package <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- III. Global Logistics -->
+            <div class="service-module">
+                <div class="module-header glass-card antigravity-shadow p-30 mb-40 text-center">
+                    <h3>III. Global Logistics</h3>
+                    <p>A complete travel experience requires reliable movement.</p>
+                </div>
+                <div class="logistics-grid">
+                    <div class="logistics-card glass-card antigravity-shadow">
+                        <i class="fa-solid fa-plane-departure text-teal"></i>
+                        <h4>Flight Ticketing</h4>
+                        <p>Access to exclusive fares on over 500+ global airlines.</p>
+                    </div>
+                    <div class="logistics-card glass-card antigravity-shadow">
+                        <i class="fa-solid fa-bed text-teal"></i>
+                        <h4>Premium Stays</h4>
+                        <p>Partnered with top-tier hotel chains to ensure comfort and safety.</p>
+                    </div>
+                    <div class="logistics-card glass-card antigravity-shadow">
+                        <i class="fa-solid fa-car-side text-teal"></i>
+                        <h4>Private Transfers</h4>
+                        <p>Chauffeur-driven luxury cars and group transport available 24/7. Economy to VIP tiers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Gallery Section -->
+    <section id="gallery" class="gallery-section container section-padding">
+        <div class="section-header text-center">
+            <h2>Wanderlust Gallery</h2>
+            <p class="sub-headline">Glimpses of the unforgettable moments we create.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item item-large antigravity-shadow">
+                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=800"
+                    alt="Tropical Beach">
+                <div class="gallery-overlay glass-panel"><span>Maldives</span></div>
+            </div>
+            <div class="gallery-item item-medium antigravity-shadow">
+                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800"
+                    alt="Paris">
+                <div class="gallery-overlay glass-panel"><span>Paris</span></div>
+            </div>
+            <div class="gallery-item item-small antigravity-shadow">
+                <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800"
+                    alt="Taj Mahal">
+                <div class="gallery-overlay glass-panel"><span>Agra</span></div>
+            </div>
+            <div class="gallery-item item-small antigravity-shadow">
+                <img src="https://images.unsplash.com/photo-1512453979436-5a53f444c283?auto=format&fit=crop&q=80&w=800"
+                    alt="Dubai Safari">
+                <div class="gallery-overlay glass-panel"><span>Dubai Desert Safari</span></div>
+            </div>
+            <div class="gallery-item item-medium antigravity-shadow">
+                <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=800"
+                    alt="Swiss Alps Skiing">
+                <div class="gallery-overlay glass-panel"><span>Swiss Alps Skiing</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data-Rich Sections: Day-by-Day Itinerary -->
+    <section id="itinerary" class="itinerary-section container section-padding">
+        <div class="section-header text-center">
+            <h2>Experience Perfection</h2>
+            <p class="sub-headline">Sample 7-Day Luxury Itinerary</p>
+        </div>
+
+        <div class="timeline-container antigravity-shadow glass-card">
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Day 1: Arrival & Welcome</div>
+                    <div class="timeline-details">
+                        <p><i class="fa-solid fa-plane-arrival"></i> Private VIP Chauffeur Transfer</p>
+                        <p><i class="fa-solid fa-bed"></i> Check-in at 5-Star Partner Hotel</p>
+                        <p><i class="fa-solid fa-utensils"></i> Welcome Dinner at Rooftop Lounge</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Day 2: City Immersion</div>
+                    <div class="timeline-details">
+                        <p><i class="fa-solid fa-mug-saucer"></i> Premium Buffet Breakfast</p>
+                        <p><i class="fa-solid fa-camera-retro"></i> Guided Heritage Sightseeing Tour</p>
+                        <p><i class="fa-solid fa-spa"></i> Evening Spa & Relaxation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Day 3: Nature & Adventure</div>
+                    <div class="timeline-details">
+                        <p><i class="fa-solid fa-mug-saucer"></i> Early Breakfast</p>
+                        <p><i class="fa-solid fa-mountain-sun"></i> Mountain Lodge Excursion & Trekking</p>
+                        <p><i class="fa-solid fa-champagne-glasses"></i> Sunset Cruise Experience</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Day 4-6: Tailored Exploration</div>
+                    <div class="timeline-details">
+                        <p><i class="fa-solid fa-compass"></i> Fully customized activities based on preference</p>
+                        <p><i class="fa-solid fa-basket-shopping"></i> Luxury Retail Excursions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Day 7: Departure</div>
+                    <div class="timeline-details">
+                        <p><i class="fa-solid fa-mug-saucer"></i> Farewell Breakfast</p>
+                        <p><i class="fa-solid fa-car-side"></i> Chauffeur to Airport Terminal</p>
+                        <p><i class="fa-solid fa-plane-up"></i> VIP Lounge Access & Departure</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="testimonials-section container section-padding">
+        <div class="section-header text-center">
+            <h2>Traveler Stories</h2>
+            <p class="sub-headline">Discover what our globetrotters have to say.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card glass-card antigravity-shadow">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left text-teal"></i></div>
+                <p>"The Maldives trip was perfectly organized! Every detail from the seaplane transfer to the overwater
+                    villa was flawlessly executed. Hashir Travel made our honeymoon truly magical."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J.">
+                    <div>
+                        <h4>Sarah Jenkins</h4>
+                        <span>Honeymoon Package</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card glass-card antigravity-shadow">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left text-teal"></i></div>
+                <p>"Securing a UK Visa seemed impossible until I consulted Hashir Travel. Their documentation team is
+                    incredibly professional and supportive. Highly recommended for visa consultancy."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmed K.">
+                    <div>
+                        <h4>Ahmed Khan</h4>
+                        <span>Visa Consultancy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card glass-card antigravity-shadow">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left text-teal"></i></div>
+                <p>"Our family Umrah trip was a deeply spiritual and hassle-free experience thanks to Hashir Travel. The
+                    VIP transport and hotel proximity to the Haram were exactly as promised."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Omar F.">
+                    <div>
+                        <h4>Omar Farooq</h4>
+                        <span>Premium Umrah Package</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Hashir Travel? (Trust Block) -->
+    <section class="trust-section bg-light section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Why Choose Hashir Travel?</h2>
+                <p class="sub-headline">Unparalleled excellence at every step of your journey.</p>
+            </div>
+
+            <div class="trust-table-wrapper antigravity-shadow glass-card">
+                <table class="trust-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>What We Offer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-headset text-teal"></i> 24/7 Support</td>
+                            <td>A dedicated concierge team available in every time zone.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-award text-teal"></i> Best Price Guarantee
+                            </td>
+                            <td>Premium luxury at competitive, transparent market rates.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-globe text-teal"></i> Global Network</td>
+                            <td>Partnerships with local guides and vendors in 100+ countries.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-bullseye text-teal"></i> Zero Hidden Fees
+                            </td>
+                            <td>What you see is exactly what you pay. No last-minute surprises.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-calendar-check text-teal"></i> Flexible
+                                Rescheduling</td>
+                            <td>Plans change. Enjoy up to 2 free itinerary date changes on qualifying flights and stays.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col"><i class="fa-solid fa-star text-teal"></i> 4.9/5 TrustScore</td>
+                            <td>Over 15,000 satisfied globetrotters have reviewed our trips positively.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Sections -->
+    <section id="legal" class="legal-section container section-padding">
+        <div class="legal-grid">
+            <div class="legal-card glass-card antigravity-shadow">
+                <div class="legal-header">
+                    <i class="fa-solid fa-file-contract text-teal"></i>
+                    <h2>Agreement for Travel Services</h2>
+                </div>
+                <div class="legal-content">
+                    <ol class="legal-list">
+                        <li><strong>Booking & Reservations:</strong> All bookings made through Hashir Travel are subject
+                            to availability. A booking is only confirmed once the initial deposit or full payment is
+                            received and a confirmation voucher is issued.</li>
+                        <li><strong>Pricing & Payments:</strong> All prices are quoted in USD/Local Currency as per
+                            current exchange rates. Hashir Travel reserves the right to adjust pricing in the event of
+                            significant fuel surcharges or government-imposed tax changes.</li>
+                        <li><strong>Cancellation & Refunds:</strong> Cancellation policies vary by airline, hotel, and
+                            tour operator.
+                            <ul>
+                                <li><em>Standard Tours:</em> Cancellations made 30 days prior are eligible for a 75%
+                                    refund.</li>
+                                <li><em>Non-Refundable Services:</em> Certain flight tickets and promotional hotel stays
+                                    are non-refundable.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Visa Services:</strong> While Hashir Travel provides expert consultancy and document
+                            processing, the final decision to grant a visa rests solely with the respective Embassy or
+                            Consulate. Service fees are non-refundable regardless of the visa outcome.</li>
+                        <li><strong>Travel Insurance:</strong> We strongly recommend that all travelers obtain
+                            comprehensive travel insurance. Hashir Travel is not liable for health issues, accidents, or
+                            loss of personal property during the journey.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="legal-card glass-card antigravity-shadow">
+                <div class="legal-header">
+                    <i class="fa-solid fa-shield-halved text-teal"></i>
+                    <h2>Your Data Security & Privacy</h2>
+                </div>
+                <div class="legal-content">
+                    <ol class="legal-list">
+                        <li><strong>Data Collection:</strong> We collect personal information (Name, Passport Details,
+                            Email, and Contact Number) solely for the purpose of booking travel services and complying
+                            with international aviation and immigration laws.</li>
+                        <li><strong>Data Usage:</strong> Your information is shared only with third-party providers
+                            (Airlines, Hotels, and Insurance Companies) necessary to complete your travel arrangements.
+                            We do not sell your data to marketing agencies.</li>
+                        <li><strong>Payment Security:</strong> All online transactions are processed via secure,
+                            encrypted gateways. Hashir Travel does not store credit card or bank login details on our
+                            local servers.</li>
+                        <li><strong>Cookies:</strong> Our website uses cookies to enhance your browsing experience and
+                            remember your destination preferences for future visits.</li>
+                        <li><strong>User Rights:</strong> You have the right to request a copy of your data or ask for
+                            its deletion from our records at any time by contacting <a
+                                href="mailto:privacy@hashirtravel.com" class="text-teal">privacy@hashirtravel.com</a>.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area Container -->
+    <div id="contact" class="footer-wrapper hero" style="min-height: auto; padding: 100px 0 60px;">
+        <video autoplay muted loop playsinline class="hero-video" style="z-index: -3;">
+            <source
+                src="https://player.vimeo.com/external/498416801.sd.mp4?s=d753bf889dfcdbeae68ad93f185b9a89182f7e71&profile_id=164&oauth2_token_id=57447761"
+                type="video/mp4">
+        </video>
+        <div class="hero-overlay" style="z-index: -2;"></div>
+
+        <div class="container relative z-index-1">
+            <footer class="antigravity-footer">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h3 class="footer-logo">Hashir Travel</h3>
+                        <p>Elevating journeys with luxury, security, and absolute precision.</p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <span class="label">Office Address:</span>
+                                    <span>100 Premium Tower, Global Avenue, Luxury District</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <span class="label">Support Email:</span>
+                                    <a href="mailto:info@hashirtravel.com">info@hashirtravel.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div>
+                                    <span class="label">WhatsApp Helpline:</span>
+                                    <a href="https://wa.me/18005550199">+1 (800) 555-0199</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
+                                <div>
+                                    <span class="label">License No:</span>
+                                    <span>DT-9988-IATA-123</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-newsletter">
+                        <h4>Join Our Club</h4>
+                        <p>Join 5,000+ Travelers for Exclusive Deals.</p>
+                        <form class="newsletter-form"
+                            onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Subscribed!'; this.querySelector('button').style.backgroundColor='#25D366'; this.querySelector('button').style.color='#fff';">
+                            <input type="email" placeholder="Your Email Address" required>
+                            <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-bottom text-center">
+                    <p>&copy; 2026 Hashir Travel. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
