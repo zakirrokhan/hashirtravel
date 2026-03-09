@@ -144,4 +144,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400); // Wait for fade out
         }, 5000); // Change every 5 seconds
     }
+
+    // Hero Background Slider Rotation
+    const heroBgSlider = document.querySelector('header.hero .hero-bg-slider');
+    if (heroBgSlider) {
+        const slides = heroBgSlider.querySelectorAll('.hero-slide');
+        if (slides.length > 1) {
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000); // Change every 5 seconds
+        }
+    }
 });
