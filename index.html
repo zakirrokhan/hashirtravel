@@ -107,58 +107,62 @@
                     <div id="flights" class="search-panel active">
                         <div class="input-group">
                             <label>From</label>
-                            <input type="text" placeholder="London (LHR)">
+                            <input type="text" id="flight-from" placeholder="London (LHR)">
                         </div>
                         <div class="input-group">
                             <label>To</label>
-                            <input type="text" placeholder="Dubai (DXB)">
+                            <input type="text" id="flight-to" placeholder="Dubai (DXB)">
                         </div>
                         <div class="input-group">
                             <label>Dates</label>
-                            <input type="text" placeholder="Oct 10 - Oct 20" onfocus="(this.type='date')"
-                                onblur="(this.type='text')">
+                            <input type="text" id="flight-date" placeholder="Oct 10 - Oct 20"
+                                onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
-                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search
+                        <button class="btn btn-search" id="btn-search-flights"><i
+                                class="fa-solid fa-magnifying-glass"></i> Search
                             Flights</button>
                     </div>
 
                     <div id="hotels" class="search-panel">
                         <div class="input-group full-width">
                             <label>Destination / Property</label>
-                            <input type="text" placeholder="e.g. Burj Al Arab Jumeirah">
+                            <input type="text" id="hotel-dest" placeholder="e.g. Burj Al Arab Jumeirah">
                         </div>
                         <div class="input-group">
                             <label>Check In</label>
-                            <input type="text" placeholder="Select Date" onfocus="(this.type='date')"
+                            <input type="text" id="hotel-date" placeholder="Select Date" onfocus="(this.type='date')"
                                 onblur="(this.type='text')">
                         </div>
                         <div class="input-group">
                             <label>Guests</label>
-                            <select>
+                            <select id="hotel-guests">
                                 <option>1 Adult, 1 Room</option>
                                 <option selected>2 Adults, 1 Room</option>
                                 <option>2 Adults, 2 Children</option>
                                 <option>Group Booking</option>
                             </select>
                         </div>
-                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Find Hotel</button>
+                        <button class="btn btn-search" id="btn-search-hotels"><i
+                                class="fa-solid fa-magnifying-glass"></i> Find Hotel</button>
                     </div>
 
                     <div id="tours" class="search-panel">
                         <div class="input-group full-width">
                             <label>Tour Category</label>
-                            <select>
+                            <select id="tour-category">
                                 <option value="luxury">Luxury Escapes</option>
                                 <option value="umrah">Religious Tourism (Hajj/Umrah)</option>
                                 <option value="adventure">Adventure & Nature</option>
                                 <option value="honeymoon">Honeymoon Specials</option>
+                                <option value="restaurant">Restaurants & Dining</option>
                             </select>
                         </div>
                         <div class="input-group full-width">
                             <label>Destination Focus</label>
-                            <input type="text" placeholder="e.g. Makkah, Maldives, Swiss Alps">
+                            <input type="text" id="tour-dest" placeholder="e.g. Makkah, Maldives, Swiss Alps">
                         </div>
-                        <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Find Tours</button>
+                        <button class="btn btn-search" id="btn-search-tours"><i
+                                class="fa-solid fa-magnifying-glass"></i> Find Tours</button>
                     </div>
                 </div>
             </div>

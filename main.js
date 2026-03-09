@@ -82,37 +82,70 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Search Button Interactive Feedback
-    const searchBtns = document.querySelectorAll('.btn-search');
-    searchBtns.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const originalText = this.innerHTML;
+    // Live Search Redirects
+    const btnFlights = document.getElementById('btn-search-flights');
+    const btnHotels = document.getElementById('btn-search-hotels');
+    const btnTours = document.getElementById('btn-search-tours');
 
-            // Loading State
-            this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Searching...';
-            this.style.opacity = '0.9';
-            this.style.pointerEvents = 'none';
+    function animateSearchButton(btn, callback) {
+        if (!btn) return;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Redirecting...';
+        btn.style.opacity = '0.9';
+        btn.style.pointerEvents = 'none';
 
-            // Success State (Simulated API Call)
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fa-solid fa-plane-departure"></i> Opening...';
+            btn.style.backgroundColor = '#00D2FF'; // Brand Teal
+            btn.style.color = '#001F3F'; // Deep Navy
+
             setTimeout(() => {
-                this.innerHTML = '<i class="fa-solid fa-check"></i> Found Deals!';
-                this.style.backgroundColor = '#25D366'; // Success Green
-                this.style.color = 'white';
-                this.style.boxShadow = '0px 10px 20px rgba(37, 211, 102, 0.4)';
+                callback();
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }, 1000); // Short delay before opening tab and resetting
+        }, 800); // Simulated "API fetching" time
+    }
 
-                // Reset State
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.style.backgroundColor = '';
-                    this.style.color = '';
-                    this.style.opacity = '1';
-                    this.style.pointerEvents = 'auto';
-                    this.style.boxShadow = '';
-                }, 3000);
-            }, 1500);
+    if (btnFlights) {
+        btnFlights.addEventListener('click', function (e) {
+            e.preventDefault();
+            const from = document.getElementById('flight-from').value.trim() || 'London';
+            const to = document.getElementById('flight-to').value.trim() || 'Dubai';
+            // Google Flights Search Query
+            const query = encodeURIComponent(`Flights from ${from} to ${to}`);
+            const url = `https://www.google.com/travel/flights?q=${query}`;
+            animateSearchButton(this, () => window.open(url, '_blank'));
         });
-    });
+    }
+
+    if (btnHotels) {
+        btnHotels.addEventListener('click', function (e) {
+            e.preventDefault();
+            const dest = document.getElementById('hotel-dest').value.trim() || 'Dubai';
+            const date = document.getElementById('hotel-date').value;
+            // Booking.com Search
+            let url = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(dest)}`;
+            if (date) url += `&checkin=${date}`;
+            animateSearchButton(this, () => window.open(url, '_blank'));
+        });
+    }
+
+    if (btnTours) {
+        btnTours.addEventListener('click', function (e) {
+            e.preventDefault();
+            const categoryElement = document.getElementById('tour-category');
+            const category = categoryElement.options[categoryElement.selectedIndex].text;
+            const dest = document.getElementById('tour-dest').value.trim() || 'Maldives';
+            // TripAdvisor Search for Tours & Restaurants
+            const query = encodeURIComponent(`${category} in ${dest}`);
+            const url = `https://www.tripadvisor.com/Search?q=${query}`;
+            animateSearchButton(this, () => window.open(url, '_blank'));
+        });
+    }
 
     // Weather Widget Rotation
     const weatherData = [
