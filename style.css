@@ -212,6 +212,18 @@ ul {
     padding: 0;
 }
 
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo {
     font-family: var(--font-heading);
     font-weight: 800;
@@ -219,6 +231,26 @@ ul {
     color: var(--deep-navy);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.footer-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--pure-white);
 }
 
 .nav-links {
@@ -1133,6 +1165,7 @@ ul {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 250px;
     gap: 20px;
+    grid-auto-flow: dense;
 }
 
 .gallery-item {
